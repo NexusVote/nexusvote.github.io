@@ -1,9 +1,5 @@
 //Methoden, die überall benötigt werden
 
-//imports
-
-
-
 /*------------------------------------------------------------------------------------------------------------------------*/
 //überprüfen ob variablen zurückgesetzt werden müssen
 function cookieproove() {

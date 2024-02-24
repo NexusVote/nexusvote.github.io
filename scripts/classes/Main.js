@@ -1,5 +1,4 @@
 //Variablen
-
 var subjects;
 var profiles;
 var taskfields;
@@ -11,8 +10,6 @@ function electionMain(){
     initializeData();
     resetSpalte(0);
     loadP1();
-
-    //initializeData2();
 }
 
 //Reset aller Variablen
@@ -22,10 +19,8 @@ function resetElection(){
     taskfields = [];
     kindOfSubjects = [];
 
-    //Hier muss der gernerierte Code hin
     election = new Election( ["Sprachlicher Schwerpunkt","Musisch-künstlerischer Schwerpunkt","Gesellschaftswissenschaftlicher Schwerpunkt","Mathematisch-naturwissenschaftlicher Schwerpunkt"] , ["Deutsch","Fremdsprachen","künstlerisch","Politik-Wirtschaft","Geschichte","Erdkunde","Religion_WerteundNormen","Mathematik","Naturwissenschaften","Informatik","Sport"] , ["sprachlich-literarisch-künstlerisch","gesellschaftswissenschaftlich","mathematisch-naturwissenschaftlich-technisch"] , ["Deutsch","Englisch","Französisch","Latein","Spanisch","Kunst","Musik","Darstellendes-Spiel","Politik-Wirtschaft","Geschichte","Erdkunde","Religion","Werte-und-Normen","Mathematik","Physik","Chemie","Biologie","Informatik","Sport"]) ;
 	profiles.push( new Profile("Sprachlicher Schwerpunkt", [[[1],[0,1]],[[1],[0,1]],[[-1]]], "Spra" ));
-	//profiles.push( new Profile("Musisch-künstlerischerSchwerpunkt", [[[2],[0,7]],[[2],[0,7]],[[-1]]]) );
     profiles.push( new Profile("Musisch-künstlerischer Schwerpunkt", [[[2]],[[0,7]],[[-1]]], "MuKu" ));
 	profiles.push( new Profile("Gesellschaftswissenschaftlicher Schwerpunkt", [[[4]],[[-2]],[[3,5,6]]], "Gese" ));
 	profiles.push( new Profile("Mathematisch-naturwissenschaftlicher Schwerpunkt", [[[7,8],[7,8,9]],[[7,8],[7,8,9]],[[-1]]], "MaNa"));
@@ -53,20 +48,15 @@ function resetElection(){
 	subjects.push( new Subject("Darstellendes Spiel", 0, 2, false, false, true, [false,false,false,false,false], 0, 0, false, 5, 3, 1.5, -1, -1) );
 	subjects.push( new Subject("Politik-Wirtschaft", 1, 3, false, true, true, [false,false,true,true,true], 0, 0, true, 5, 3, 1.5, -1, -1) );
 	subjects.push( new Subject("Geschichte", 1, 4, false, true, true, [true,false,true,true,true], 0, 0, true, 5, 3, 1.5, -1, -1) );
-	subjects.push( new Subject("Erdkunde", 1, 5, false, true, false, [false,false,true,true,true], 0, 0, false, 5, 3, 1.5, -1, -1) );//Änderungen
-	subjects.push( new Subject("Religion", 1, 6, false, true, true, [false,false,true,true,true], 0, 0, false, 5, 3, 1.5, -1, -1) );//Änderungen
+	subjects.push( new Subject("Erdkunde", 1, 5, false, true, false, [false,false,true,true,true], 0, 0, false, 5, 3, 1.5, -1, -1) );
+	subjects.push( new Subject("Religion", 1, 6, false, true, true, [false,false,true,true,true], 0, 0, false, 5, 3, 1.5, -1, -1) );
 	subjects.push( new Subject("Werte-und-Normen", 1, 6, false, false, true, [false,false,false,false,false], 0, 0, false, 5, 3, 1.5, -1, -1) );
 	subjects.push( new Subject("Mathematik", 2, 7, true, true, true, [true,true,true,true,true], 0, 0, true, 5, 3, 3, -1, -1) );
 	subjects.push( new Subject("Physik", 2, 8, false, true, true, [true,true,true,true,true], 0, 0, false, 5, 3, 1.5, -1, -1) );
 	subjects.push( new Subject("Chemie", 2, 8, false, true, true, [true,true,true,true,true], 0, 0, false, 5, 3, 1.5, -1, -1) );
 	subjects.push( new Subject("Biologie", 2, 8, false, true, true, [true,true,true,true,true], 0, 0, false, 5, 3, 1.5, -1, -1) );
 	subjects.push( new Subject("Informatik", 2, 9, false, true, true, [true,true,true,true,true], 0, 0, false, 5, 3, 1.5, -1, -1) );
-    //Im gese geht info p2 nicht! done
-    //Info in gese als 2nat done
-    //Info & erd nicht zusätzlich done
 	subjects.push( new Subject("Sport", 4, 10, false, false, true, [false,false,false,false,true], 0, 0, false, 5, 3, 0, -1, -1) );
-	//Fertig
-
 }
 
 
@@ -74,12 +64,9 @@ function resetElection(){
 //Dies wird gebraucht, da man im sessionStorage nur Strings speichern kann
 function generateArray(arr){
     var a = "";
-    //console.log(arr);
-    //console.log(arr.length);
     for (let i = 0; i<arr.length; i++){
         a +=  arr[i]+ ";" ;
     }
-    //console.log(a);
     return a;
 }
 
@@ -99,7 +86,6 @@ function getArray(a){
     if (txt != ""){
         arr.push(txt);
     }
-    //console.log(arr);
     return arr;
 }
 
@@ -133,11 +119,8 @@ function containsSubjectProfil(subject, profilBedingung){
             return true;
         }
     }
-    //console.log(subject.kindOfSubject);
-    //console.log(profilBedingung);
     for (let i = 0; i < profilBedingung.length; i++){
         if (subject.kindOfSubject == profilBedingung[i]){
-            //console.log("true");
             return true;
         }
     }
@@ -145,8 +128,6 @@ function containsSubjectProfil(subject, profilBedingung){
     return false;
 }
 
-//Jetzt geht es ans eingemachte
-//Hier kommt jetzt die tatsächliche Logik hin
 
 //Anzeigen eines Buttons mit Text
 function showButton(buttonID, txt, selectable){
@@ -166,7 +147,7 @@ function showButton(buttonID, txt, selectable){
 
 //Reseten der Buttons
 function resetButton(buttonID){
-    let elem = document.getElementById(buttonID); //Hier könnte was falsch sein
+    let elem = document.getElementById(buttonID);
     elem.textContent= " ";
     elem.disabled = true;
     elem.classList.add("nonvisible");
@@ -224,16 +205,14 @@ function resetSpalte(spalte){
 
         }
     }
-    //console.log("ja");
     var selectedProfiles = getProfiles();
     selectedProfiles = getArray(initializeArray(selectedProfiles.length, "1"));
-    //console.log(selectedProfiles);
     setProfiles(selectedProfiles);
     for (let i = 0; i < spalte && i < 3; i++) {
         chooseProfil(i, subjects[selectedP[i]]);
 
     }
-    //console.log("nein");
+
     setSubjects(selectedSubjects);
     setP(selectedP);
     setTaskfields(selectedTaskfields);
@@ -248,18 +227,13 @@ function initializeData(){
     Die Profile sind ein Sonderfall, wenn es um das Intitialisiern des Arrays geht. Eine "1" bedeutet, dass dieses Profil
     mit der gewählten Fachkobination noch möglich ist. Dass mache ich, damit ich im Folgenden dann checken kann, welche
     Möglichkeiten für das Profil es noch gibt, da wenn man als P1 z.B. Deutsch nimmt, noch nicht ganz klar ist, ob man das Musich-künstleriche Profil
-     Musich-künstleriche Profil nimmt, oder doch das sprachliche.
+    Musich-künstleriche Profil nimmt, oder doch das sprachliche.
     */
     sessionStorage.setItem("selectedSubjects", initializeArray(election.subjects.length, "0"));
     sessionStorage.setItem("selectedTaskfields", initializeArray(election.taskfields.length, "0"));
     sessionStorage.setItem("selectedKindOfSubjects", initializeArray(election.kindOfSubjects.length, "0"));
     sessionStorage.setItem("selectedP", initializeArray(5, "0"));
 
-    //console.log(getProfiles());
-    //console.log(getSubjects());
-    //console.log(getTaskfields());
-    //console.log(getKindOfSubject());
-    //console.log(getP());
 }
 
 //Alle Indizes sind gleich wie die von den Arrays mit den Objekten
@@ -284,9 +258,7 @@ function getP(){
 }
 
 function setProfiles(arr){
-    //console.log(arr);
     sessionStorage.setItem("selectedProfiles", generateArray(arr));
-    //console.log("a");
 }
 
 function setSubjects(arr){
@@ -309,26 +281,23 @@ function setP(arr){
 //Logik, welche Fächer wann gewählt werden müssen
 /*
   - Für jedes Prüfungsfach geibt es eine load Funktion
-  -> die Funktion für load bei P1 muss bei onlaoad geladen werden
+  -> die Funktion für load bei P1 muss bei onload geladen werden
 
 */
 function loadeA(p){
     //P ist dafür, um zu bestimmen, um welches Prüfungsfach es sich handelt (also Nummer)
 
-    //var profil = -1; --> also das hier defintiv nicht 
     var selectedProfiles = getProfiles();
     var selectedSubjects = getSubjects();
     var selectedKindOfSubjects = getKindOfSubject();
     var selectedTaskfields = getTaskfields();
     var selectedP = getP(); 
-    //console.log(selectedProfiles);
     let elem = document.getElementById("p"+p+"Reset");
     elem.disabled = false;
 
-    var kernfaecherAnzahl = 0; // Hier muss bissl anders gezählt werden
+    var kernfaecherAnzahl = 0;
     var fremd = false;
     for (let i = 0; i < p; i++){ //Kernfächer zählen
-        //console.log(subjects[selectedP[i]].kindOfSubject);
         if (subjects[selectedP[i]].kernfach == true){
             if (fremd && subjects[selectedP[i]].kindOfSubject == 1) kernfaecherAnzahl--;
             if (subjects[selectedP[i]].kindOfSubject == 1)fremd = true;
@@ -344,7 +313,7 @@ function loadeA(p){
 
     
     for (let i = 0; i < subjects.length; i++){
-        //herausfinden, ob es auf eA wählbar ist
+        //herausfinden, ob Fach auf eA wählbar ist
         if (subjects[i].eA == false){
             continue;
         }
@@ -361,25 +330,23 @@ function loadeA(p){
             continue;
         }
 
-        //console.log(selectedProfiles);
         //Jetzt müssen alle Profile durchgegangen werden
         for (let j = 0; j < selectedProfiles.length; j++){
            
             //Wenn dieses Profil nicht mehr zur Auswahl steht, kann der Durchlauf übersprungen werden
             if (selectedProfiles[j] == 0){
-                //console.log("continue");
                 continue;
             }
 
             //Wir nehemen an dieser Stelle jetzt an, dass die Bedingungen in einem dreidimesionalen Array stehen
             /* Aufbau des Arrays
-            profile[welches prüfungsfach][die wie vielte bedingung][aus welchen fachtypen]
+            profile[welches prüfungsfach][die wievielte bedingung][aus welchen fachtypen]
             -> dieser Array ist 0 indiziert
             */
 
             var bedingungen = []; // das sind die Bedingungnen für dieses Profil an dieser Positon auf Basis voheriger Wahlen von Fächern
             
-            //Wenn es nur eine Bedingung gibt, dann kann sie sich ja nicht mit anderne überschneiden
+            //Wenn es nur eine Bedingung gibt, dann kann sie sich ja nicht mit anderen überschneiden
             if (profiles[j].kindOfSubject[p].length == 1){
                 //Prüfen, ob die Bedingung auf das Fach zutrifft
                 bedingungen = profiles[j].kindOfSubject[p][0];
@@ -392,13 +359,9 @@ function loadeA(p){
                         //Und dann jede Bedingung dieser vorigen Position
                         for(let m = 0; m < profiles[j].kindOfSubject[l].length; m++){
                             //Sind die Bedingungen gleich?
-                            //console.log("gleich");
                             if (profiles[j].kindOfSubject[p][k].length == profiles[j].kindOfSubject[l][m].length){
                                 //Wurde diese Bedingung erfüllt?
-                                //console.log("doppelt");
-                                //console.log(profiles[j].kindOfSubject[p][k]);
                                 if (containsSubjectProfil(subjects[selectedP[l]], profiles[j].kindOfSubject[l][m])){
-                                    //console.log("true");
                                     bedingungenTmp.push(profiles[j].kindOfSubject[l][m]); //Enfach mal speicher welche Bedingungen idenentisch sind und erfüllt
                                 }
 
@@ -406,8 +369,6 @@ function loadeA(p){
                         }
                     }
                 }
-                //console.log("bedingungenTmp");
-                //console.log(bedingungenTmp);
                 //Jetzt sind in bedingungenTmp alle Bedingungen, die erfüllt sind
                 //Nun werden in bedingungen alle Bedingungen, die übrig bleiben gespeichert
                 for (let k = 0; k < profiles[j].kindOfSubject[p].length; k++){
@@ -428,11 +389,7 @@ function loadeA(p){
             }
             //Ab jetzt erhält bedingungen alle Bedingungen, die übrig bleiben und auf dieses Prüfungsfach angewendet werden müsssen
             //Hier muss jetzt geprüft werden, ob eine der Bedingungen auf 
-            //console.log(bedingungen);
             for (let k = 0; k < bedingungen.length; k++){
-                //console.log("bedingungen");
-                //console.log(bedingungen);
-                //console.log(bedingungen[0]);
                 if (bedingungen[0] == -1){
                     var bedingungen2 = [];
                     for (let l = 0; l < taskfields.length; l++){
@@ -440,14 +397,10 @@ function loadeA(p){
                             bedingungen2.push(l);
                         }
                     }
-                    //console.log(-1 + " "+ fehltB);
-                    //console.log(kernfaecherAnzahl);
-                    if (fehltB){
-                        //console.log("erg " + (2 - kernfaecherAnzahl == 4 - p));
-                        if (2 - kernfaecherAnzahl == 4 - p){ //Es wurden noch nicht alle Kernfächer gewählt und auf allen restlichen Positionen müssen Kernfächer liegen
+                    if (fehltB){ //Es wurden noch nicht alle Kernfächer gewählt und Bereich B fehl und auf allen restlichen Positionen müssen Kernfächer oder Bereich B liegen
+                        if (2 - kernfaecherAnzahl == 4 - p){ 
                             
                             if (subjects[i].kernfach == false && subjects[i].taskfield != 1){
-                                //console.log("break");
                                 break;
                             }
                         }
@@ -480,37 +433,17 @@ function loadeA(p){
                         if(containsSubjectProfil(subjects[i], bedingungen[k])){
                             resetButton("button"+p+"_"+i);
                             showButton("button"+p+"_"+i, subjects[i].name, true);
-                            
                         }
                     }
                 if(containsSubjectProfil(subjects[i], bedingungen)){
                     resetButton("button"+p+"_"+i);
-                    showButton("button"+p+"_"+i, subjects[i].name, true);
-                        
-                }
-                
-                
+                    showButton("button"+p+"_"+i, subjects[i].name, true);  
+                }    
             }
-                
-            /*
-            Ich brauche eine Funktion, die prüft, welche Bedingen die gwählten Fächer schon erfüllen und die nicht erfüllten zurückgibt
-            -> aber beim naturwissenschafltichen Profil erfüllt z.B. Bio beide Bedingungen und es bleibt keine mehr übrig
-            -> bei gese kann ich auch nicht an p2 -1 schreiben, weil man darf ja nicht PoWi wählen (Lösung bed.: !Politik (für nicht powi))
-            -> es kann ja auch sein, dass die unterschiedliche bedingungen haben, also P1 zwei und P2 theoretisch drei und es decken sich iw nur ein bis zwei
-
-            Vielleicht kann ich ja prüfen, welche Bedingungen auf das potenzielle Fach zu treffen und welche nicht
-            */
-
-            //Ich glaube hier bin ich fertig, muss ggf. noch gedebugged werden
-        
         }
-        
     }
     showTaskfields (p);
-    
 }
-
-
 
 //Eine Funktion, die einträgt, welches Fach gewählt wurde
 function selectP(p, subjectIndex){
@@ -525,16 +458,11 @@ function selectP(p, subjectIndex){
     selectedP[p] = subjectIndex;
     selectedSubjects[subjectIndex] = 1;
     selectedTaskfields[subjects[subjectIndex].taskfield] =  parseInt(selectedTaskfields[subjects[subjectIndex].taskfield]) + 1;
-    /*if (subjects[subjectIndex].kernfach){
-        selectedTaskfields[selectedTaskfields.length-1] += 1;
-    }*/
     selectedKindOfSubjects[subjects[subjectIndex].kindOfSubject] = parseInt(selectedKindOfSubjects[subjects[subjectIndex].kindOfSubject]) + 1;
 
     if (p < 3){
-        //console.log("a");
         chooseProfil(p, subjects[subjectIndex]);
     }
-
 
     setSubjects(selectedSubjects);
     setKindOfSubjects(selectedKindOfSubjects);
@@ -544,20 +472,14 @@ function selectP(p, subjectIndex){
 
 }
 
-//Eine Funktion, die andere Fächer deaktiviert
-//Naja, brauche ich nicht mehr so wirklich
-
-//Eine Funtkion, die das Profil festlegt -> fertig
-function chooseProfil(p, subject){ //subject ist hier ein objekt
+//Eine Funtkion, die das Profil festlegt
+function chooseProfil(p, subject){ //subject ist hier ein Objekt
     //Diese Funktion ist dafür da, die möglichen Profile einzuschränken
     var selectedProfiles = getProfiles();
     //console.log(selectedProfiles.length);
     for (let i = 0; i < selectedProfiles.length; i++){ //Jedes Profil durchgehen
         if (selectedProfiles[i] == "1"){
             let found = false;
-            //console.log(i);
-            //console.log(profiles[i].name);
-            //console.log(profiles[i].kindOfSubject[p]);
             for (let j = 0; j < profiles[i].kindOfSubject[p].length; j++){
                 if (containsSubjectProfil(subject, profiles[i].kindOfSubject[p][j])){
                     found = true;
@@ -572,11 +494,10 @@ function chooseProfil(p, subject){ //subject ist hier ein objekt
 }
 
 
-//Es fehlt noch eine Funktion, die den angecklickten Button färbt und alle deaktiviert
-//erledigt
+//Funktion, die den angecklickten Button färbt und alle deaktiviert
 function clickButton(spalte, buttonIndex){
     for (let i = 0; i < 20; i++){
-        let elem = document.getElementById("button"+spalte+"_"+i); //Hier könnte was falsch sein
+        let elem = document.getElementById("button"+spalte+"_"+i);
         elem.disabled = true;
         if (i == buttonIndex){
             elem.classList.add("selected");
@@ -595,11 +516,8 @@ function clickButton(spalte, buttonIndex){
     }
 }
 
-//Gebraucht wird noch eine vernünftige Funktion zum zurücksetzen aller Variablen
-//Schreibe ich später
-
-//P1
 //Eine Load-Funktion, die erstellt, welche Fächer auf eA wählbar sind
+//P1
 function loadP1(){
     //Hier muss dann loadeA aufgerufen werden
     loadeA(0);
@@ -630,7 +548,6 @@ function loadgA(p){
     */
     //Erstmal Bedingungen raussuchen
     var bedingungen = [];
-    //var selectedProfiles = getProfiles(); -> brauch ich durchs hardcoden nicht mehr
     var selectedSubjects = getSubjects();
     var selectedTaskfields = getTaskfields();
     var selectedP = getP();
@@ -639,10 +556,9 @@ function loadgA(p){
     var bedingungen = [];
     let elem = document.getElementById("p"+p+"Reset");
     elem.disabled = false;
-    var kernfaecherAnzahl = 0; // Hier muss bissl anders gezählt werden
+    var kernfaecherAnzahl = 0;
     var fremd = false;
     for (let i = 0; i < p; i++){ //Kernfächer zählen
-        //console.log(subjects[selectedP[i]].kindOfSubject);
         if (subjects[selectedP[i]].kernfach == true){
             if (fremd && subjects[selectedP[i]].kindOfSubject == 1) kernfaecherAnzahl--;
             if (subjects[selectedP[i]].kindOfSubject == 1)fremd = true;
@@ -668,7 +584,7 @@ function loadgA(p){
             continue;
         }
         showButton("button"+p+"_"+i,subjects[i].name, false); //Erstmal als nicht auswählbar anzeigen, wird falls das Fach wählbar ist geändert
-        //Wenn ein Fach schon gewählt wurde kanndieser Durchlauf auch übersprungen werden
+        //Wenn ein Fach schon gewählt wurde kann dieser Durchlauf auch übersprungen werden
         if (selectedSubjects[i] == true){
             continue;
         }
@@ -678,8 +594,6 @@ function loadgA(p){
         }
 
         //Wenn noch nichts gesellschaftliches gewählt wurde
-        //console.log(p + " "+ fehltB);
-        //console.log((2 - kernfaecherAnzahl) +" "+ (4 - p));
         if (fehltB){
             if (2 - kernfaecherAnzahl == 4 - p){ //Es wurden noch nicht alle Kernfächer gewählt und auf allen restlichen Positionen müssen Kernfächer liegen
                 
@@ -697,7 +611,7 @@ function loadgA(p){
             if (fremd == true&&subjects[i].kindOfSubject==1) continue;
         }
         if (bedingungen.length == 5-p){
-        //Es wurdne noch nicht alle Aufgabenbreiche gewählt und auf allen restlichen Positionen müssen Fächer dieser Aufgabenbereiche liegen
+        //Es wurden noch nicht alle Aufgabenbreiche gewählt und auf allen restlichen Positionen müssen Fächer dieser Aufgabenbereiche liegen
             let found = false
             for (let j = 0; j < bedingungen.length; j++){
                 if (subjects[i].taskfield == bedingungen[j]){
@@ -714,22 +628,11 @@ function loadgA(p){
         showButton("button"+p+"_"+i, subjects[i].name, true);
     }
     //Sport und Erdkunde gehen nicht zusammen (außer Erdkunde wurde eA gewählt):
-    //console.log("Erd");
-    //console.log(selectedSubjects[10]);
     if (selectedSubjects[10]==1&&selectedP[2]!="10"){
         resetButton("button"+p+"_"+18);
         showButton("button"+p+"_"+18, subjects[18].name, false);
-        //console.log("Disable sport");
     }
-    
-    /*
-    - Jetzt muss ich alle Aufgabenbereiche
-    durchgehen
-    - Vielleicht sollte ich bei den Kernfächern
-    anfagben, weil wenn die nicht vollständige sind
-    und ggf. nicht erfüllt werden können, darf ich nur
-    Kernfächer freischalten
-    */
+
     showTaskfields (p);
 }
 
@@ -787,7 +690,7 @@ function getIn12(){
 
 
 
-//Jetzt fehlen nur noch die Abdecker
+//Wählen der Abdecker
 function abdecker(){
     var selectedSubjects = getArray(initializeArray(subjects.length,"0"));
     var selectedKindOfSubjects = getArray(initializeArray(kindOfSubjects.length,"0"));
@@ -830,12 +733,9 @@ function abdecker(){
     }
     document.getElementById("pflicht").textContent = txt;
     
-    //Hier fehlen noch die aufgerufen Methoden
     setPflicht(pflicht);
     setSubjects(selectedSubjects);
     setKindOfSubjects(selectedKindOfSubjects);
-    //console.log("pflicht");
-    //console.log(pflicht);
 
 }
 
@@ -845,12 +745,11 @@ function loadNextBox(b){
     //b ist dafür, um zu bestimmen, welche Box geladen werden muss, bzw, wo diese hin muss
 
     /*eigentlich muss ich hier ja nur durchgehen, welche belegungsverpflichtungen noch nicht erfüllt sind und
-    dann mal abfragen, welche Fächer noch für 12 in frage kommen und dann informatik und erdkunde
+    dann mal abfragen, welche Fächer noch für 12 in frage kommen
     */
     var selectedSubjects = getSubjects();
     var selectedKindOfSubjects = getKindOfSubject();
     var selectedProfiles = getProfiles();
-    //console.log(selectedProfiles);
 
     //Muss noch initialisiert etc. werden
     var showingBoxes = getShowingBoxes();
@@ -858,15 +757,7 @@ function loadNextBox(b){
 
     //Erstmal allgemeine Belegungsverpflichtungen
     var reihnfolge = [6, 2, 1, 8]
-    
-    /*var box = 0;
-
-    for (let i = 0; i < showingBoxes.length; i++) {
-        if (showingBoxes[i] == "0"){
-            box = i;
-        }
-
-    }*/
+   
     var buttonCount = 0;
 
     for (let i = 0; i < reihnfolge.length; i++){
@@ -895,7 +786,6 @@ function loadNextBox(b){
                     continue;
                 }
                 //Jetzt sind nur noch wählbare Fächer übrig
-                //console.log("ja");
                 showButton("button"+b+"_"+buttonCount, subjects[j].name, true);
                 buttonCount++;
             }
@@ -915,7 +805,6 @@ function loadNextBox(b){
             break;
         }
     }
-    //console.log(profil);
     //Jetzt für jedes Profil entsprechende zusätzliche Box ggf. freischalten
     if (profil == 0 && parseInt(selectedKindOfSubjects[1]) < 2){//Zwei Fremdsprachen im sprachlichen Profil
         let elem = document.getElementById("b"+b);
@@ -1092,39 +981,7 @@ function loadNextBox(b){
         setShowingBoxes(showingBoxes);
         return;
     }
-/*
-    if (selectedSubjects[10] == "0"){
-        let elem = document.getElementById("b"+b);
-        elem.classList.remove("nonvisible");
-        elem.classList.add("visible");
-        elem = document.getElementById("b"+b+"Reset");
-        elem.classList.remove("nonvisible");
-        elem.classList.add("visible");
-        elem = document.getElementById("h" + b);
-        elem.textContent = "Erdkunde?";
-        showButton("button"+b+"_0", "ja", true);
-        showButton("button"+b+"_1", "nein", true);
-        showingBoxes[b] = 5;
-        setShowingBoxes(showingBoxes);
-        return;
-    }
 
-    if (selectedSubjects[17] == "0"){
-        let elem = document.getElementById("b"+b);
-        elem.classList.remove("nonvisible");
-        elem.classList.add("visible");
-        elem = document.getElementById("b"+b+"Reset");
-        elem.classList.remove("nonvisible");
-        elem.classList.add("visible");
-        elem = document.getElementById("h" + b);
-        elem.textContent = "Informatik?";
-        showButton("button"+b+"_0", "ja", true);
-        showButton("button"+b+"_1", "nein", true);
-        showingBoxes[b] = 9;
-        setShowingBoxes(showingBoxes);
-        return;
-    }
-*/
     //Wenn man hier hin kommt, gibt es keine weiteren Boxen zum freischalten, also kann man nun weiter gehen
     let elem = document.getElementById("continue");
     elem.disabled = false;
@@ -1139,9 +996,7 @@ function clickBox (box, buttonIndex) {
     var selectedSubjects = getSubjects();
     var selectedKindOfSubjects = getKindOfSubject()
 
-
     var boxType = parseInt(showingBoxes[box]);
-    //console.log(boxType);
     var cnt = 0;
     if (boxType == 18){
         for (let i = 0; i < subjects.length; i++) {
@@ -1193,7 +1048,6 @@ function clickBox (box, buttonIndex) {
                 break;
             }
         }
-        //console.log(profil);
         var options = [];
         if (profil == 0){
             options = [9, 8, 5, 6, 11, -1]
@@ -1206,7 +1060,6 @@ function clickBox (box, buttonIndex) {
         }
 
         for (let i = 0; i < options.length; i++){
-            //console.log(i);
             let elem = document.getElementById("button"+box+"_"+i); 
             elem.disabled = true;
             if (i == buttonIndex){
@@ -1227,17 +1080,14 @@ function clickBox (box, buttonIndex) {
         }
 
     } else if (boxType == 5 || boxType == 9){
-        //console.log("yes");
         if (buttonIndex == 0){
             let elem = document.getElementById("button"+box+"_0");
             elem.disabled = true;
             elem.classList.add("selected");
             elem.classList.remove("selectable");
-            //console.log("yes");
             if (boxType == 5){
                 selectedSubjects[10] = 1;
                 selectedKindOfSubjects[5] = 1;
-                //console.log("yes");
             } else {
                 selectedSubjects[17] = 1;
                 selectedKindOfSubjects[9] = 1;
@@ -1299,6 +1149,7 @@ function clickBox (box, buttonIndex) {
     }
 }
 
+//Zurücksetzen von Boxen
 function resetBox(box){
 
     var selectedSubjects = getSubjects();
@@ -1306,22 +1157,18 @@ function resetBox(box){
 
     var showingBoxes = getShowingBoxes();
     var selectedB = getSelectedB();
-    //console.log(selectedB);
 
 
     for (let i = 7; i >= box; i--){
-        let elem = document.getElementById("b"+i); 
-        //console.log(elem);        
+        let elem = document.getElementById("b"+i);      
         elem.classList.add("nonvisible");
         elem = document.getElementById("b"+i+"Reset"); 
-        //console.log(elem);        
         elem.classList.add("nonvisible");
         elem = document.getElementById("h" + i);
         elem.textContent = "";
 
         for (let j = 0; j < 10; j++){
             let elem = document.getElementById("button"+i+"_"+j); 
-            //console.log(elem);
             elem.textContent = " ";
             elem.disabled = true;
             
@@ -1343,19 +1190,13 @@ function resetBox(box){
                     setIn12(0);
                 } else {
                     selectedSubjects[subjectIndex] = 0;
-                    //console.log(subjects[subjectIndex].kindOfSubject);
                     selectedKindOfSubjects[subjects[subjectIndex].kindOfSubject] = parseInt(selectedKindOfSubjects[subjects[subjectIndex].kindOfSubject]) - 1;
                 }
-                
             }
-            
-
         }
         showingBoxes[i] = 0;
     }
-    //console.log("ja");
     
-    //console.log("nein");
     setSubjects(selectedSubjects);
     setSelectedB(selectedB);
     setShowingBoxes(showingBoxes);
@@ -1363,7 +1204,7 @@ function resetBox(box){
 
 }
 
-
+//Zeigen der gewählten Fächer und Prüfungsfächer
 function loadShow(){
     resetElection();
     var selectedSubjects = getSubjects();
@@ -1408,6 +1249,7 @@ function loadShow(){
 
 }
 
+//Gewählte Aufgabenbereiche und Kernfächer zeigen
 function showTaskfields (p){
     var field = document.getElementById("infoTaskfields");
     var txt = "Kernfächer: ";
@@ -1418,7 +1260,6 @@ function showTaskfields (p){
     var kernfaecherAnzahl = 0;
     var fremd = false;
     for (let i = 0; i < p; i++){ //Kernfächer zählen
-        //console.log(subjects[selectedP[i]].kindOfSubject);
         if (subjects[selectedP[i]].kernfach == true){
             if (fremd && subjects[selectedP[i]].kindOfSubject == 1) kernfaecherAnzahl--;
             if (subjects[selectedP[i]].kindOfSubject == 1)fremd = true;
@@ -1437,7 +1278,7 @@ function showTaskfields (p){
 
 /*
 Da ich aus der HTML nicht auf Methoden und die Klassen hier zugreifen kann, schreibe ich die
-notwendigen Dinge getrennt, in inder Form, in der ich sie brauche ins Session Storage
+notwendigen Dinge getrennt, in in der Form, in der ich sie brauche ins Session Storage
 */
 function prepFile(){
     var selectedProfiles = getProfiles();
@@ -1466,8 +1307,6 @@ function prepFile(){
             txt+= subjects[i].name;
             txt+=";";
         }
-    
-        
     }
     sessionStorage.setItem('gA',txt);
     console.log(txt);
@@ -1477,22 +1316,3 @@ function prepFile(){
     else sessionStorage.setItem('inJ12',-1);
     console.log(sessionStorage.getItem('inJ12'));
 }
-
-
-/*
-To Do:
-
-- das mit dem zurücksetzen fixen -> done
-- die geschichte mit dem gessellschaftlichen und und den kernfächern in den prüfungsfächern -> habe es schon versucht, jetzt fehlt noch p3
-- alle Texte ändern -> done
-- halbwegs ansehbares Design schreiben -> done
-- ausdrucken
-- informatik in den abdeckern -> done
-- zurücksetzen und neu laden in den abdeckern
-- anzeigen von den bereichen und kernfächern -> done
-
-- p5 zurücksetzen fixen -> done
-
-
-
-*/
