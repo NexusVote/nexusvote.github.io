@@ -688,8 +688,6 @@ function getIn12(){
     return sessionStorage.getItem("in12");
 }
 
-
-
 //Wählen der Abdecker
 function abdecker(){
     var selectedSubjects = getArray(initializeArray(subjects.length,"0"));
