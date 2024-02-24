@@ -1,0 +1,94 @@
+/*
+Farben:
+Türkisblau #058B8C
+Petrol #005f6a
+Wand 103.138.142
+Anthrazitgrau  #383E42
+Schiefergrau #4F5358
+*/
+
+/* Allgemeine Angaben zum Style, die überall benötigt werden*/
+html {
+    /* Festlegen der Schriftart für die gesamte Website*/
+    font-family: 'Rubik', sans-serif; /*Vielleicht hier noch eine andere?*/
+    
+}
+
+/* Hintergrund*/
+.bg {
+    background-color: #e6e6e6;
+}
+
+.bottom {
+    text-align: center;
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+    background-color: #4F5358;
+    color: #f7f7f7;
+    margin: 10px 0px 0px 0px;
+    padding: 20px 0px 20px 0px;
+
+    border-radius: 4px;
+}
+
+.impressum {
+    color: #f7f7f7;
+}
+
+
+/*Wenn Teile sichtbar oder nicht sichtbar sein sollen*/
+.visible {
+    display: block
+}
+.invisible {
+    display: none;
+}
+
+/*Buttons*/
+button {
+    background-color: #058B8C;
+    color:rgba(255, 255, 255, 0.85);
+    margin: 5px 0;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+/*Style für die Coookie Box*/
+#cookieconsent {
+    width: 20%;
+    background-color: #333333;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding: 10px 10px 10px 10px;
+    font-family: inherit;
+    color: #f7f7f7;
+}
+
+#cookieheading {
+    font-size: 28px;
+    margin: 10px 20px 10px 20px;
+}
+
+#cookietext {
+    font-size: 20px;
+    margin: 10px 20px 10px 20px;
+}
+
+#cookiebutton {
+    padding: 5px 20px 5px 20px;
+    margin: 10px 20px 10px 20px;
+    transition-duration: 0.4s;
+    background-color: #00e600;
+    border: none;
+    border-radius: 0;
+    font-family: inherit;
+    color: #333333;
+    font-size: 20px;
+}
+
+#cookiebutton:hover {
+    background-color: #009900;
+    color: #f7f7f7;
+}

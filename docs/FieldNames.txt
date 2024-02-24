@@ -1,0 +1,33 @@
+Deutsch
+Englisch
+Französisch
+Latein
+Spanisch
+Kunst
+Musik
+Darstellendes Spiel
+Politik-Wirtschaft
+Geschichte
+Erdkunde
+Religion
+Werte-und-Normen
+Mathematik
+Physik
+Chemie
+Biologie
+Informatik
+Sport
+
+Sprachlicher Schwerpunkt
+Musisch-künstlerischer Schwerpunkt
+Gesellschaftswissenschaftlicher Schwerpunkt
+Mathematisch-naturwissenschaftlicher Schwerpunkt
+
+name
+firstname
+
+"P"+toString(i)
+
+_eA
+_gA
+_12

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Fächerwahl</title>
+    <meta name="author" content="Isabel Reinema" />
+    <meta name="description" content="Fächerwahl für die Qualifikationsphase" />
+    <!--Schriftart-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+    <!--Stylesheets-->
+    <link href="styles/style.css" rel="stylesheet" type="text/css" />
+    <link href="styles/styleName.css" rel="stylesheet" type="text/css" />
+    <link href="styles/styleElection2.css" rel="stylesheet" type="text/css" />
+    <!--Scripts-->
+    <script src="scripts/script.js"></script>
+    <script src="scripts/cookies.js"></script>
+
+    <!--Und die ganzen Wahl Scripts-->
+    <script src="scripts/classes/Election.js"></script>
+    <script src="scripts/classes/KindOfSubject.js"></script>
+    <script src="scripts/classes/Main.js"></script>
+    <script src="scripts/classes/Profile.js"></script>
+    <script src="scripts/classes/Subject.js"></script>
+    <script src="scripts/classes/Taskfield.js"></script>
+
+    <script src="pdf-lib/dist/pdf-lib.js"></script>
+    <script src="https://unpkg.com/downloadjs@1.4.7"></script>
+
+    <script src="scripts/scriptTst.js"></script>
+    <!--Responsives Design (vielleicht noch?)-->
+    
+</head>
+
+<body class="bg" onload="starting();cookieproove();showName('fullName'); loadShow(); prepFile()">
+    <div class="top">
+        <p id="fullName">Guest</p>
+        <!--Hier muss dann das Grid usw. hin-->
+        <button onclick="printfile()">Wahlbogen herunterladen</button><br>
+        <button onclick="window.location = 'wahl.html'">Neu wählen</button>
+        
+        <script>
+            var PDFDocument = PDFLib.PDFDocument;
+            function getArray(a){
+                var arr = [];
+                var txt = "";
+                for (let i = 0; i<a.length; i ++){
+                    let char = a.charAt(i);
+                    if(char == ";"){
+                        arr.push(txt);
+                        txt = "";
+                    } else {
+                        txt += char;
+                    }
+                }
+                if (txt != ""){
+                    arr.push(txt);
+                }
+                //console.log(arr);
+                return arr;
+            }
+            async function printfile() {
+                //Korrektes PDF auswählen:
+                const url = 'QP_'+sessionStorage.getItem('profil')+'.pdf'; 
+                const existingPdfBytes = await fetch(url).then(res => res.arrayBuffer());
+
+                const pdfDoc = await PDFDocument.load(existingPdfBytes);
+                const form = pdfDoc.getForm();
+
+                //PDF ausfüllen
+                //Name:
+                const name = form.getTextField('name');
+                name.setText(sessionStorage.getItem('lastName'));
+                const firstname = form.getTextField('firstname');
+                firstname.setText(sessionStorage.getItem('firstName'));
+
+                //Prüfungsfächer:
+                var p = getArray(sessionStorage.getItem('pf'));
+                for (let i  = 0;  i < 5; i++){
+                    if (i==0&&sessionStorage.getItem('profil')=='Gese')continue;
+                    if(i < 3){
+                        const eA = form.getTextField(p[i]+"_eA")
+                        eA.setText('X');
+                    }
+                    const pf = form.getTextField("P"+i.toString());
+                    pf.setText(p[i]);
+                }
+
+                //Grundkurse:
+                var g = getArray(sessionStorage.getItem('gA'));
+                for (let i = 0; i < g.length; i++){
+                    const gA = form.getTextField(g[i]+"_gA");
+                    gA.setText('X');
+                }
+
+                //In 12 belegen
+                var in12 = sessionStorage.getItem('inJ12');
+                if (in12 != -1){
+                    const inJ12 = form.getTextField(in12+'_12');
+                    inJ12.setText('X');
+                }
+
+                //PDF drucken
+                form.updateFieldAppearances();
+                form.flatten(); // Flache die Formularfelder
+                const pdfBytes = await pdfDoc.save();
+                download(pdfBytes, 'QP_'+sessionStorage.getItem('profil')+'_'+sessionStorage.getItem('firstName')+'_'+sessionStorage.getItem('lastName')+".pdf", "application/pdf");
+            }
+        </script>
+        
+    
+    <div class="out">
+        <p class="" id="l"></p>
+        <br>
+        <p class="" id="l0"></p>
+        <p class="" id="l1"></p>
+        <p class="" id="l2"></p>
+        <p class="" id="l3"></p>
+        <p class="" id="l4"></p>
+        <br>
+        <p class="" id="l5"></p>
+        <p class="" id="l6"></p>
+        <p class="" id="l7"></p>
+        <p class="" id="l8"></p>
+        <p class="" id="l9"></p>
+        <p class="" id="l10"></p>
+        <p class="" id="l11"></p>
+        <p class="" id="l12"></p>
+        <p class="" id="l13"></p>
+        <p class="" id="l14"></p>
+        <p class="" id="l15"></p>
+        <p class="" id="l16"></p>
+        <p class="" id="l17"></p>
+        <p class="" id="l18"></p>
+        <p class="" id="l19"></p>
+        <p class="" id="l20"></p>
+        <p class="" id="l21"></p>
+        <p class="" id="l22"></p>
+        <p class="" id="l23"></p>
+        <p class="" id="l24"></p>
+        <br>
+        <p class="" id="l25"></p>
+        
+    </div>
+</div>
+
+    <!--Footer? eher nicht-->
+    <footer>
+        <div class="bottom">
+            <p>Bei Fehlern bitte <a class="impressum" href="https://cloudfiles.jsg-vechelde.de/index.php/s/FzcXm3of5Lo2ZoL">hier</a> clicken (und den Fehler eintragen ^^ )</p>
+        </div>
+    </footer>
+
+    <div id="cookieconsent"> <!--Zustimmen von Cookies-->
+        <h4 id="cookieheading">Ich mag Kekse</h4>
+        <p id="cookietext">Wir benutzen Cookies, damit unsere Website funktioniert. 
+            Mit der Nutzung dieser Website stimmen Sie der Nutzung von Cookies zu.
+        </p>
+        <button id="cookiebutton" onclick="allowed()">Akzeptieren!</button>
+    </div>
+    <!--mal zum testen-->
+
+</body>
+
+</html>

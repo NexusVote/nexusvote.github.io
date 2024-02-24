@@ -1,0 +1,121 @@
+/*Grid*/
+.name {
+    grid-area: name;
+    background-color: rgba(230, 230, 230, 0.8);
+    margin: 0px;
+    padding: 16px;
+    border-radius: 4px;
+}
+
+.infoTaskfields {
+    grid-area: infoTaskfields;
+    background-color: rgba(230, 230, 230, 0.8);
+    margin: 0px;
+    padding: 16px;
+    border-radius: 4px;
+}
+
+.reset {
+    grid-area: reset;
+    border-radius: 4px;
+}
+
+.continue{
+    grid-area: continue;
+    border-radius: 4px;
+}
+
+.p0Reset {
+    grid-area: p0Reset;
+}
+
+.p1Reset {
+    grid-area: p1Reset;
+}
+
+.p2Reset {
+    grid-area: p2Reset;
+}
+
+.p3Reset {
+    grid-area: p3Reset;
+}
+
+.p4Reset {
+    grid-area: p4Reset;
+}
+
+.p0 {
+    grid-area: p0;
+}
+
+.p1 {
+    grid-area: p1;
+}
+
+.p2 {
+    grid-area: p2;
+}
+
+.p3 {
+    grid-area: p3;
+}
+
+.p4 {
+    grid-area: p4;
+}
+
+.infoElection {
+    grid-area: infoElection;
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas:
+    'name infoTaskfields infoTaskfields reset continue'
+    'p0Reset p1Reset p2Reset p3Reset p4Reset'
+    'p0 p1 p2 p3 p4'
+    'infoElection infoElection infoElection infoElection infoElection';
+  gap: 10px;
+  background-color: #4F5358;
+  padding: 10px;
+    border-radius: 4px;
+}
+
+.grid-container > div {
+  background-color: #e6e6e6;
+  text-align: left;
+  padding: 10px 10px;
+  /*font-size: 30px;*/
+    border-radius: 4px;
+}
+
+h3 {
+    margin: 5px 0;
+}
+.visible{
+    display: block;
+}
+
+.nonvisible{
+    display: none;
+}
+
+.selectable{
+    background-color: #058B8C;
+}
+.selectable:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    background-color: #005f6a;
+}
+
+.notSelectable{
+    background-color: rgb(255, 177, 177);
+}
+
+.selected{
+    background-color: #005f6a;
+    color:rgba(255, 255, 255, 0.85);
+}

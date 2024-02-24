@@ -1,0 +1,16 @@
+/*Wie die Seite zum Namen eingeben aussehen soll*/
+.button {
+    background-color: rgb(205, 241, 255);
+    margin: 5px 0;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.top {
+    background-color: #308ce2;
+    padding: 20px;
+    border-radius: 4px;
+    /*background-color: #308ce2;*/
+    color: #f7f7f7;
+    
+}

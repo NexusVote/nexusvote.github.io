@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Fächerwahl</title>
+    <meta name="author" content="Isabel Reinema" />
+    <meta name="description" content="Fächerwahl für die Qualifikationsphase" />
+    <!--Schriftart-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+    <!--Stylesheets-->
+    <link href="styles/style.css" rel="stylesheet" type="text/css" />
+    <link href="styles/styleName.css" rel="stylesheet" type="text/css" />
+    <link href="styles/styleElection.css" rel="stylesheet" type="text/css" />
+    <!--Scripts-->
+    <script src="scripts/script.js"></script>
+    <script src="scripts/cookies.js"></script>
+
+    <!--Und die ganzen Wahl Scripts-->
+    <script src="scripts/classes/Election.js"></script>
+    <script src="scripts/classes/KindOfSubject.js"></script>
+    <script src="scripts/classes/Main.js"></script>
+    <script src="scripts/classes/Profile.js"></script>
+    <script src="scripts/classes/Subject.js"></script>
+    <script src="scripts/classes/Taskfield.js"></script>
+
+    <script src="scripts/scriptTst.js"></script>
+    <!--Responsives Design (vielleicht noch?)-->
+    
+</head>
+
+<body class="bg" onload="starting();cookieproove(); showName('name');electionMain()">
+    
+    <div class="grid-container">
+        <p class="name" id="name">Guest</p>
+        <p class="infoTaskfields" id="infoTaskfields"></p>
+        <button class="reset" type="button" onclick="resetSpalte(0);electionMain()">Alles zurücksetzen</button>
+        <button class="continue" id="continue" disabled="true" onclick="window.location = 'wahl2.html'" >Weiter</button>
+        <button class="p0Reset" id="p0Reset" disabled="true" onclick="resetSpalte(0);electionMain()">Zurücksetzen P1</button>
+        <button class="p1Reset" id="p1Reset" disabled="true" onclick="resetSpalte(1); loadP2()">Zurücksetzen P2</button>
+        <button class="p2Reset" id="p2Reset" disabled="true" onclick="resetSpalte(2); loadP3()">Zurücksetzen P3</button>
+        <button class="p3Reset" id="p3Reset" disabled="true" onclick="resetSpalte(3); loadP4()">Zurücksetzen P4</button>
+        <button class="p4Reset" id="p4Reset" disabled="true" onclick="resetSpalte(4); loadP5()">Zurücksetzen P5</button>
+        <div class="p0">
+            <h3>Prüfungsfach 1</h3>
+            <button class="" disabled="false" id="button0_0"  onclick="selectP(0, 0), loadP2()"> </button> 
+            <button class="" disabled="false" id="button0_1"  onclick="selectP(0, 1), loadP2()"> </button> 
+            <button class="" disabled="false" id="button0_2"  onclick="selectP(0, 2), loadP2()"> </button> 
+            <button class="" disabled="false" id="button0_3"  onclick="selectP(0, 3), loadP2()"> </button> 
+            <button class="" disabled="false" id="button0_4"  onclick="selectP(0, 4), loadP2()"> </button> 
+            <button class="" disabled="false" id="button0_5"  onclick="selectP(0, 5), loadP2()"> </button> 
+            <button class="" disabled="false" id="button0_6"  onclick="selectP(0, 6), loadP2()"> </button> 
+            <button class="" disabled="false" id="button0_7"  onclick="selectP(0, 7), loadP2()"> </button> 
+            <button class="" disabled="false" id="button0_8"  onclick="selectP(0, 8), loadP2()"> </button> 
+            <button class="" disabled="false" id="button0_9"  onclick="selectP(0, 9), loadP2()"> </button> 
+            <button class="" disabled="false" id="button0_10"  onclick="selectP(0, 10), loadP2()"> </button> 
+            <button class="" disabled="false" id="button0_11"  onclick="selectP(0, 11), loadP2()"> </button> 
+            <button class="" disabled="false" id="button0_12"  onclick="selectP(0, 12), loadP2()"> </button> 
+            <button class="" disabled="false" id="button0_13"  onclick="selectP(0, 13), loadP2()"> </button> 
+            <button class="" disabled="false" id="button0_14"  onclick="selectP(0, 14), loadP2()"> </button> 
+            <button class="" disabled="false" id="button0_15"  onclick="selectP(0, 15), loadP2()"> </button> 
+            <button class="" disabled="false" id="button0_16"  onclick="selectP(0, 16), loadP2()"> </button> 
+            <button class="" disabled="false" id="button0_17"  onclick="selectP(0, 17), loadP2()"> </button> 
+            <button class="" disabled="false" id="button0_18"  onclick="selectP(0, 18), loadP2()"> </button> 
+            <button class="" disabled="false" id="button0_19"  onclick="selectP(0, 19), loadP2()"> </button> 
+
+        </div>
+        <div class="p1">
+            <h3>Prüfungsfach 2</h3>
+            <button class="" disabled="false" id="button1_0"  onclick="selectP(1, 0), loadP3()"> </button> 
+            <button class="" disabled="false" id="button1_1"  onclick="selectP(1, 1), loadP3()"> </button> 
+            <button class="" disabled="false" id="button1_2"  onclick="selectP(1, 2), loadP3()"> </button> 
+            <button class="" disabled="false" id="button1_3"  onclick="selectP(1, 3), loadP3()"> </button> 
+            <button class="" disabled="false" id="button1_4"  onclick="selectP(1, 4), loadP3()"> </button> 
+            <button class="" disabled="false" id="button1_5"  onclick="selectP(1, 5), loadP3()"> </button> 
+            <button class="" disabled="false" id="button1_6"  onclick="selectP(1, 6), loadP3()"> </button> 
+            <button class="" disabled="false" id="button1_7"  onclick="selectP(1, 7), loadP3()"> </button> 
+            <button class="" disabled="false" id="button1_8"  onclick="selectP(1, 8), loadP3()"> </button> 
+            <button class="" disabled="false" id="button1_9"  onclick="selectP(1, 9), loadP3()"> </button> 
+            <button class="" disabled="false" id="button1_10"  onclick="selectP(1, 10), loadP3()"> </button> 
+            <button class="" disabled="false" id="button1_11"  onclick="selectP(1, 11), loadP3()"> </button> 
+            <button class="" disabled="false" id="button1_12"  onclick="selectP(1, 12), loadP3()"> </button> 
+            <button class="" disabled="false" id="button1_13"  onclick="selectP(1, 13), loadP3()"> </button> 
+            <button class="" disabled="false" id="button1_14"  onclick="selectP(1, 14), loadP3()"> </button> 
+            <button class="" disabled="false" id="button1_15"  onclick="selectP(1, 15), loadP3()"> </button> 
+            <button class="" disabled="false" id="button1_16"  onclick="selectP(1, 16), loadP3()"> </button> 
+            <button class="" disabled="false" id="button1_17"  onclick="selectP(1, 17), loadP3()"> </button> 
+            <button class="" disabled="false" id="button1_18"  onclick="selectP(1, 18), loadP3()"> </button> 
+            <button class="" disabled="false" id="button1_19"  onclick="selectP(1, 19), loadP3()"> </button> 
+        </div>
+        <div class="p2">
+            <h3>Prüfungsfach 3</h3>
+            <button class="" disabled="false" id="button2_0"  onclick="selectP(2, 0), loadP4()"> </button> 
+            <button class="" disabled="false" id="button2_1"  onclick="selectP(2, 1), loadP4()"> </button> 
+            <button class="" disabled="false" id="button2_2"  onclick="selectP(2, 2), loadP4()"> </button> 
+            <button class="" disabled="false" id="button2_3"  onclick="selectP(2, 3), loadP4()"> </button> 
+            <button class="" disabled="false" id="button2_4"  onclick="selectP(2, 4), loadP4()"> </button> 
+            <button class="" disabled="false" id="button2_5"  onclick="selectP(2, 5), loadP4()"> </button> 
+            <button class="" disabled="false" id="button2_6"  onclick="selectP(2, 6), loadP4()"> </button> 
+            <button class="" disabled="false" id="button2_7"  onclick="selectP(2, 7), loadP4()"> </button> 
+            <button class="" disabled="false" id="button2_8"  onclick="selectP(2, 8), loadP4()"> </button> 
+            <button class="" disabled="false" id="button2_9"  onclick="selectP(2, 9), loadP4()"> </button> 
+            <button class="" disabled="false" id="button2_10"  onclick="selectP(2, 10), loadP4()"> </button> 
+            <button class="" disabled="false" id="button2_11"  onclick="selectP(2, 11), loadP4()"> </button> 
+            <button class="" disabled="false" id="button2_12"  onclick="selectP(2, 12), loadP4()"> </button> 
+            <button class="" disabled="false" id="button2_13"  onclick="selectP(2, 13), loadP4()"> </button> 
+            <button class="" disabled="false" id="button2_14"  onclick="selectP(2, 14), loadP4()"> </button> 
+            <button class="" disabled="false" id="button2_15"  onclick="selectP(2, 15), loadP4()"> </button> 
+            <button class="" disabled="false" id="button2_16"  onclick="selectP(2, 16), loadP4()"> </button> 
+            <button class="" disabled="false" id="button2_17"  onclick="selectP(2, 17), loadP4()"> </button> 
+            <button class="" disabled="false" id="button2_18"  onclick="selectP(2, 18), loadP4()"> </button> 
+            <button class="" disabled="false" id="button2_19"  onclick="selectP(2, 19), loadP4()"> </button> 
+        </div>
+        <div class="p3">
+            <h3>Prüfungsfach 4</h3>
+            <button class="" disabled="false" id="button3_0"  onclick="selectP(3, 0), loadP5()"> </button> 
+            <button class="" disabled="false" id="button3_1"  onclick="selectP(3, 1), loadP5()"> </button> 
+            <button class="" disabled="false" id="button3_2"  onclick="selectP(3, 2), loadP5()"> </button> 
+            <button class="" disabled="false" id="button3_3"  onclick="selectP(3, 3), loadP5()"> </button> 
+            <button class="" disabled="false" id="button3_4"  onclick="selectP(3, 4), loadP5()"> </button> 
+            <button class="" disabled="false" id="button3_5"  onclick="selectP(3, 5), loadP5()"> </button> 
+            <button class="" disabled="false" id="button3_6"  onclick="selectP(3, 6), loadP5()"> </button> 
+            <button class="" disabled="false" id="button3_7"  onclick="selectP(3, 7), loadP5()"> </button> 
+            <button class="" disabled="false" id="button3_8"  onclick="selectP(3, 8), loadP5()"> </button> 
+            <button class="" disabled="false" id="button3_9"  onclick="selectP(3, 9), loadP5()"> </button> 
+            <button class="" disabled="false" id="button3_10"  onclick="selectP(3, 10), loadP5()"> </button> 
+            <button class="" disabled="false" id="button3_11"  onclick="selectP(3, 11), loadP5()"> </button> 
+            <button class="" disabled="false" id="button3_12"  onclick="selectP(3, 12), loadP5()"> </button> 
+            <button class="" disabled="false" id="button3_13"  onclick="selectP(3, 13), loadP5()"> </button> 
+            <button class="" disabled="false" id="button3_14"  onclick="selectP(3, 14), loadP5()"> </button> 
+            <button class="" disabled="false" id="button3_15"  onclick="selectP(3, 15), loadP5()"> </button> 
+            <button class="" disabled="false" id="button3_16"  onclick="selectP(3, 16), loadP5()"> </button> 
+            <button class="" disabled="false" id="button3_17"  onclick="selectP(3, 17), loadP5()"> </button> 
+            <button class="" disabled="false" id="button3_18"  onclick="selectP(3, 18), loadP5()"> </button> 
+            <button class="" disabled="false" id="button3_19"  onclick="selectP(3, 19), loadP5()"> </button> 
+        </div>
+        <div class="p4">
+            <h3>Prüfungsfach 5</h3>
+            <button class="" disabled="false" id="button4_0"  onclick="selectP(4, 0)"> </button> 
+            <button class="" disabled="false" id="button4_1"  onclick="selectP(4, 1)"> </button> 
+            <button class="" disabled="false" id="button4_2"  onclick="selectP(4, 2)"> </button> 
+            <button class="" disabled="false" id="button4_3"  onclick="selectP(4, 3)"> </button> 
+            <button class="" disabled="false" id="button4_4"  onclick="selectP(4, 4)"> </button> 
+            <button class="" disabled="false" id="button4_5"  onclick="selectP(4, 5)"> </button> 
+            <button class="" disabled="false" id="button4_6"  onclick="selectP(4, 6)"> </button> 
+            <button class="" disabled="false" id="button4_7"  onclick="selectP(4, 7)"> </button> 
+            <button class="" disabled="false" id="button4_8"  onclick="selectP(4, 8)"> </button> 
+            <button class="" disabled="false" id="button4_9"  onclick="selectP(4, 9)"> </button> 
+            <button class="" disabled="false" id="button4_10"  onclick="selectP(4, 10)"> </button> 
+            <button class="" disabled="false" id="button4_11"  onclick="selectP(4, 11)"> </button> 
+            <button class="" disabled="false" id="button4_12"  onclick="selectP(4, 12)"> </button> 
+            <button class="" disabled="false" id="button4_13"  onclick="selectP(4, 13)"> </button> 
+            <button class="" disabled="false" id="button4_14"  onclick="selectP(4, 14)"> </button> 
+            <button class="" disabled="false" id="button4_15"  onclick="selectP(4, 15)"> </button> 
+            <button class="" disabled="false" id="button4_16"  onclick="selectP(4, 16)"> </button> 
+            <button class="" disabled="false" id="button4_17"  onclick="selectP(4, 17)"> </button> 
+            <button class="" disabled="false" id="button4_18"  onclick="selectP(4, 18)"> </button> 
+            <button class="" disabled="false" id="button4_19"  onclick="selectP(4, 19)"> </button> 
+        </div>
+        <div class="infoElection">
+            <p>Blaue Felder sind die gewählten Fächer.<br>
+                Rote Felder können nicht gewählt werden.<br>
+                Falls eine Spalte merkwürdig aussieht, muss die gesammte Seite neu geladen werden.
+            </p>
+        </div>
+
+    </div>
+
+    <!--Footer? eher nicht-->
+    <footer>
+        <div class="bottom">
+            <p>Bei Fehlern bitte <a class="impressum" href="https://cloudfiles.jsg-vechelde.de/index.php/s/FzcXm3of5Lo2ZoL">hier</a> clicken (und den Fehler eintragen ^^ )</p>
+        </div>
+    </footer>
+
+    <div id="cookieconsent"> <!--Zustimmen von Cookies-->
+        <h4 id="cookieheading">Ich mag Kekse</h4>
+        <p id="cookietext">Wir benutzen Cookies, damit unsere Website funktioniert. 
+            Mit der Nutzung dieser Website stimmen Sie der Nutzung von Cookies zu.
+        </p>
+        <button id="cookiebutton" onclick="allowed()">Akzeptieren!</button>
+    </div>
+    <!--mal zum testen-->
+
+</body>
+
+</html>

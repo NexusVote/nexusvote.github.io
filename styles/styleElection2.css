@@ -1,0 +1,170 @@
+/*Buttons enabeln und disabeln*/
+
+.enabledbutton {
+    border: 2px solid #000066;
+    background-color: #82e2fc;
+}
+
+.enabledbutton:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    background-color: #06c4f9;
+}
+
+/*Hier fehlt noch disapledButton und chosenButttom*/
+
+/*Grid*/
+.name {
+    grid-area: name;
+    background-color: rgba(230, 230, 230, 0.8);
+    margin: 0px;
+    padding: 16px;
+    border-radius: 4px;
+}
+
+.pflicht {
+    grid-area: pflicht;
+    background-color: rgba(230, 230, 230, 0.8);
+    margin: 0px;
+    padding: 16px;
+    border-radius: 4px;
+}
+.resetP {
+    grid-area: resetP;
+}
+
+.reset {
+    grid-area: reset;
+}
+
+.continue{
+    grid-area: continue;
+}
+
+.b0Reset {
+    grid-area: b0Reset;
+}
+
+.b1Reset {
+    grid-area: b1Reset;
+}
+
+.b2Reset {
+    grid-area: b2Reset;
+}
+
+.b3Reset {
+    grid-area: b3Reset;
+}
+
+.b4Reset {
+    grid-area: b4Reset;
+}
+
+.b0 {
+    grid-area: b0;
+}
+
+.b1 {
+    grid-area: b1;
+}
+
+.b2 {
+    grid-area: b2;
+}
+
+.b3 {
+    grid-area: b3;
+}
+
+.b4 {
+    grid-area: b4;
+}
+
+.b5Reset {
+    grid-area: b5Reset;
+}
+
+.b6Reset {
+    grid-area: b6Reset;
+}
+
+.b7Reset {
+    grid-area: b7Reset;
+}
+
+.b5 {
+    grid-area: b5;
+}
+
+.b6 {
+    grid-area: b6;
+}
+
+.b7 {
+    grid-area: b7;
+}
+.n{
+    grid-area: n;
+}
+
+
+.infoElection {
+    grid-area: infoElection;
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas:
+    'name pflicht resetP reset continue'
+    'b0Reset b1Reset b2Reset b3Reset b4Reset'
+    'b0 b1 b2 b3 b4'
+    'b5Reset b6Reset b7Reset n n'
+    'b5 b6 b7 n n'
+    'infoElection infoElection infoElection infoElection infoElection';
+  gap: 10px;
+  background-color: #308ce2;
+  padding: 10px;
+    border-radius: 4px;
+}
+
+.grid-container > div {
+  background-color: rgba(230, 230, 230, 0.8);
+  text-align: left;
+  padding: 10px 10px;
+  /*font-size: 30px;*/
+    border-radius: 4px;
+}
+
+h3 {
+    margin: 5px 0;
+}
+button {
+    background-color: #82e2fc;
+    margin: 5px 0;
+    border-radius: 4px;
+}
+
+.visible{
+    display: block;
+}
+
+.nonvisible{
+    display: none;
+}
+
+.selectable{
+    background-color: rgb(205, 241, 255);
+}
+
+.notSelectable{
+    background-color: rgb(255, 177, 177);
+}
+.notselectable{
+    background-color: rgb(255, 177, 177);
+}
+
+.selected{
+    background-color: rgba(255, 255, 255, 0.85);
+}

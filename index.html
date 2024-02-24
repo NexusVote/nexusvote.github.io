@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Fächerwahl</title>
+    <meta name="author" content="Isabel Reinema" />
+    <meta name="description" content="Fächerwahl für die Qualifikationsphase" />
+    <!--Schriftart-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+    <!--Stylesheets-->
+    <link href="styles/style.css" rel="stylesheet" type="text/css" />
+    <link href="styles/styleName.css" rel="stylesheet" type="text/css" />
+    <!--Scripts-->
+    <script src="scripts/script.js"></script>
+    <script src="scripts/cookies.js"></script>
+    <!--Responsives Design (vielleicht noch?)-->
+    
+</head>
+
+<body class="bg" onload="starting();cookieproove()">
+    <div class="nameInput">
+        <p>Fächerwahl für die Qualifikationsphase</p>
+        <!--<form action="information.html" method="post" >-->
+        <form action="information.html" >
+            <input id="firstName" type="text" name="firstName" placeholder="Vorname">
+            <p></p> <!--Abstandshalter/Zeilenumbruch-->
+            <input id="lastName" type="text" name="lastName" placeholder="Nachname">
+            <p></p>
+            <input id="continueName" type="submit" onclick="allowed(), setName()" value="Weiter" >
+            <!--onclick="setName(), allowed()"  href="information.html"-->
+            <!--<button id="continueName" onclick="allowed(), setName()" href="information.html">Weiter</button>-->
+        </form>
+    </div>
+
+    <!--Footer? eher nicht test-->
+    <footer>
+        <div class="bottom">
+            <p>Bei Fehlern bitte <a class="impressum" href="https://cloudfiles.jsg-vechelde.de/index.php/s/FzcXm3of5Lo2ZoL">hier</a> clicken (und den Fehler eintragen ^^ )</p>
+        </div>
+    </footer>
+
+    <div id="cookieconsent"> <!--Zustimmen von Cookies-->
+        <h4 id="cookieheading">Ich mag Kekse</h4>
+        <p id="cookietext">Wir benutzen Cookies, damit unsere Website funktioniert. 
+            Mit der Nutzung dieser Website stimmen Sie der Nutzung von Cookies zu.
+        </p>
+        <button id="cookiebutton" onclick="allowed()">Akzeptieren!</button>
+    </div>
+
+
+</body>
+
+</html>
