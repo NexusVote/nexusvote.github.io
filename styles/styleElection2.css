@@ -1,17 +1,3 @@
-/*Buttons enabeln und disabeln*/
-
-.enabledbutton {
-    border: 2px solid #000066;
-    background-color: #82e2fc;
-}
-
-.enabledbutton:hover {
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-    background-color: #06c4f9;
-}
-
-/*Hier fehlt noch disapledButton und chosenButttom*/
-
 /*Grid*/
 .name {
     grid-area: name;
@@ -124,13 +110,13 @@
     'b5 b6 b7 n n'
     'infoElection infoElection infoElection infoElection infoElection';
   gap: 10px;
-  background-color: #308ce2;
+  background-color: #4F5358;
   padding: 10px;
     border-radius: 4px;
 }
 
 .grid-container > div {
-  background-color: rgba(230, 230, 230, 0.8);
+  background-color: #e6e6e6;
   text-align: left;
   padding: 10px 10px;
   /*font-size: 30px;*/
@@ -140,12 +126,6 @@
 h3 {
     margin: 5px 0;
 }
-button {
-    background-color: #82e2fc;
-    margin: 5px 0;
-    border-radius: 4px;
-}
-
 .visible{
     display: block;
 }
@@ -155,16 +135,18 @@ button {
 }
 
 .selectable{
-    background-color: rgb(205, 241, 255);
+    background-color: #058B8C;
+}
+.selectable:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    background-color: #005f6a;
 }
 
 .notSelectable{
     background-color: rgb(255, 177, 177);
 }
-.notselectable{
-    background-color: rgb(255, 177, 177);
-}
 
 .selected{
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: #005f6a;
+    color:rgba(255, 255, 255, 0.85);
 }
