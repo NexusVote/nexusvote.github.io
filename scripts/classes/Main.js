@@ -695,6 +695,7 @@ function abdecker(){
     var selectedSubjects = getArray(initializeArray(subjects.length,"0"));
     var selectedKindOfSubjects = getArray(initializeArray(kindOfSubjects.length,"0"));
     var selectedP = getP();
+    var profil = getProfiles();
     //Da beim Neuladen der Seite Fehler auftreten, weil die gewählten Fächer nicht vernünftigt abgewählt werden, dafür jetzt dieser Teil
     initializeData2();
     for (let i = 0; i < 5; i++){
@@ -711,7 +712,7 @@ function abdecker(){
             }
             if (subjects[i].belegungsverpflichtung == true){
                 //Wenn gesellschaftliches Profil mit Erdkunde eA dann PoWI als Pflicht überspringen
-                if (selectedP[2]=="10"&&i==8)continue;
+                if (selectedP[2]=="10"&&i==8&&profil[2]=="1")continue;
                 pflicht.push(i);
                 selectedSubjects[i] = "1";
                 selectedKindOfSubjects[subjects[i].kindOfSubject] = 1 + parseInt(selectedKindOfSubjects[subjects[i].kindOfSubject]);
