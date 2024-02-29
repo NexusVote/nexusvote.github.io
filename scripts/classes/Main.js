@@ -552,6 +552,7 @@ function loadgA(p){
     var selectedTaskfields = getTaskfields();
     var selectedP = getP();
     var selectedKindOfSubjects = getKindOfSubject();
+    var profil = getProfiles();
     
     var bedingungen = [];
     let elem = document.getElementById("p"+p+"Reset");
@@ -628,7 +629,7 @@ function loadgA(p){
         showButton("button"+p+"_"+i, subjects[i].name, true);
     }
     //Sport und Erdkunde gehen nicht zusammen (außer Erdkunde wurde eA im Gese gewählt):
-    if (selectedSubjects[10]==1&&(selectedP[2]!="10"||selectedP[2]!="1")&&p==4){
+    if (selectedSubjects[10]==1&&(selectedP[2]!="10"||profil[2]!="1")&&p==4){
         resetButton("button"+p+"_"+18);
         showButton("button"+p+"_"+18, subjects[18].name, false);
     }
