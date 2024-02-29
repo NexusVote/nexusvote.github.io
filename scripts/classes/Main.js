@@ -628,7 +628,7 @@ function loadgA(p){
         showButton("button"+p+"_"+i, subjects[i].name, true);
     }
     //Sport und Erdkunde gehen nicht zusammen (außer Erdkunde wurde eA im Gese gewählt):
-    if (selectedSubjects[10]==1&&(selectedP[2]!="10"&&selectedP[2]!="1")){
+    if (selectedSubjects[10]==1&&(selectedP[2]!="10"||selectedP[2]!="1")&&p==4){
         resetButton("button"+p+"_"+18);
         showButton("button"+p+"_"+18, subjects[18].name, false);
     }
